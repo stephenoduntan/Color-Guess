@@ -18,7 +18,10 @@ for(i = 0; i < colorBlock.length; i++){
         if(clickedColor === pickedColor){
             message.textContent = 'Correct!!';
             display.style.background = pickedColor;
-            changeColor(clickedColor);  
+            changeColor(clickedColor);
+            for(i = 0; i < menuBtn.length; i++){
+                menuBtn[0].textContent = 'PLAY AGAIN?'
+            }
         }else{
             message.textContent = 'Try Again'
             this.style.background = '#232323';
@@ -33,7 +36,7 @@ for(i = 0; i < menuBtn.length; i++){
 
 function buttonFunc(e){
     //for 'new colors' button
-    if(e.target.innerText === 'NEW COLORS'){
+    if(e.target.innerText === 'NEW COLORS' || e.target.innerText === 'PLAY AGAIN?'){
         colors = arrColor(numColor);
         for(i = 0; i < colorBlock.length; i++){
             colorBlock[i].style.background = colors[i];
@@ -43,6 +46,7 @@ function buttonFunc(e){
         colorPicker.textContent = pickedColor;
         display.style.background = 'steelblue';
         message.textContent = '';
+        this.textContent = 'NEW COLORS';
     }
     //for 'easy' button
     if(e.target.innerText === 'EASY'){
